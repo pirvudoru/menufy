@@ -9,16 +9,19 @@ namespace MenufyServer.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
-        public Configuration()
+        static Configuration()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+        }
+
+        public Configuration()
+        {
             AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ApplicationDbContext context)
         {
             CreateIngredients(context);
-            CreateNutritionTypes(context);
             CreateRecipes(context);
             
             context.SaveChanges();
@@ -44,7 +47,7 @@ namespace MenufyServer.Migrations
                 context.Recipes.Add(new Recipe
                 {
                     Type = index % 3 == 0 ? RecipeType.Breakfast : index % 3 == 0 ? RecipeType.Lunch : RecipeType.Dinner,
-                    Ingredients = context.Ingredients.Take(3).Select(i => new RecipeIngredient
+                    Ingredients = context.Ingredients.Take(3).ToList().Select(i => new RecipeIngredient
                     {
                         Ingredient = i,
                         Quantity = 4.2m
@@ -73,18 +76,6 @@ namespace MenufyServer.Migrations
                                 "discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
                         }
                     }
-                });
-            }
-        }
-
-        private static void CreateNutritionTypes(ApplicationDbContext context)
-        {
-            for (var index = 0; index < 20; index++)
-            {
-                context.NutritionType.AddOrUpdate(new NutritionType
-                {
-                    Name = $"Fat{index}",
-                    Unit = "kcal"
                 });
             }
         }

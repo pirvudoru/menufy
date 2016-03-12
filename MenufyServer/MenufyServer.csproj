@@ -227,6 +227,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603122109511_Init.cs" />
+    <Compile Include="Migrations\201603122109511_Init.Designer.cs">
+      <DependentUpon>201603122109511_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\CalloryCalculator.cs" />
     <Compile Include="Services\MenuGenerator.cs" />
