@@ -212,6 +212,15 @@
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\Identifiable.cs" />
+    <Compile Include="Data\Ingredient.cs" />
+    <Compile Include="Data\Menu.cs" />
+    <Compile Include="Data\NutritionType.cs" />
+    <Compile Include="Data\Recipe.cs" />
+    <Compile Include="Data\RecipeIngredient.cs" />
+    <Compile Include="Data\RecipeNutritionData.cs" />
+    <Compile Include="Data\RecipeStep.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
