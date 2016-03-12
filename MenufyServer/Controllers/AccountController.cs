@@ -152,7 +152,7 @@ namespace MenufyServer.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email ,Gender=model.Gender, Birthdate=model.BirthDate, Weight=model.Weight ,Height=model.Height, Lifestyle=model.Lifestyle, Constitution=model.Constitution };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email ,Gender=model.Gender, BirthDateYear=model.BirthDateYear, Weight=model.Weight ,Height=model.Height, Lifestyle=model.Lifestyle, Constitution=model.Constitution };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

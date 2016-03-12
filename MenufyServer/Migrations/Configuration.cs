@@ -50,12 +50,7 @@ namespace MenufyServer.Migrations
                         Quantity = 4.2m
                     }).ToList(),
                     DefaultServings = 42,
-                    NutritionData = context.NutritionType.ToList().Select(type => new RecipeNutritionData
-                    {
-                        NutritionType = context.NutritionType.ToList()[index],
-                        Amount = 42m,
-                        PercentOfDailyValue = 10
-                    }).ToList(),
+                    CaloricValue = 420m,
                     PhotoUrl = "http://www.healthyfoodteam.com/wp-content/uploads/2014/02/Healthy-Foodd.jpg",
                     Steps = new List<RecipeStep>
                     {

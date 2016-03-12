@@ -12,10 +12,10 @@ namespace MenufyServer.Data
 
         public int DefaultServings { get; set; }
 
+        public decimal CaloricValue { get; set; }
+        
         public ICollection<RecipeStep> Steps { get; set; } 
 
         public ICollection<RecipeIngredient> Ingredients { get; set; }
-
-        public ICollection<RecipeNutritionData> NutritionData { get; set; }
     }
 }
