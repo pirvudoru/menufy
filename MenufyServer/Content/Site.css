@@ -51,5 +51,12 @@ h3{
     width: 70%;
     height: auto;
     padding-left: 160px;
+}
 
+.jumbotron{
+    text-align: center;
+}
+
+p{
+    text-align: center;
 }
