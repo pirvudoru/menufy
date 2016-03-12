@@ -14,6 +14,10 @@ namespace MenufyServer.ViewModels
         public string Gender { get; set; }
 
         [Required]
+        [Display(Name = "Constitution")]
+        public string Constitution { get; set; }
+
+        [Required]
         [Display(Name = "BirthDate")]
         public string BirthDate { get; set; }
 

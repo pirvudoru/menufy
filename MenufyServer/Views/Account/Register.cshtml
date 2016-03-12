@@ -48,13 +48,24 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Gender, new {@class = "col-md-2 control-label"})
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.Lifestyle, new List<SelectListItem>
             {
-                new SelectListItem() { Text = "male", Value = "male"},
-                new SelectListItem() { Text = "female", Value = "female"}
-            }, new { @class = "form-control" })
+                new SelectListItem() {Text = "male", Value = "male"},
+                new SelectListItem() {Text = "female", Value = "female"}
+            }, new {@class = "form-control"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Constitution, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Constitution, new List<SelectListItem>
+            {
+                new SelectListItem() {Text = "slim constitution", Value = "slim"},
+                new SelectListItem() {Text = "normal constitution", Value = "normal"},
+                new SelectListItem() {Text = "robust constitution", Value = "robus"}
+            }, new {@class = "form-control"})
         </div>
     </div>
     <div class="form-group">

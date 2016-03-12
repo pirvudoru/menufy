@@ -16,6 +16,7 @@ namespace MenufyServer.Data
         public string Height { get; internal set; }
         public string Lifestyle { get; internal set; }
         public string Weight { get; internal set; }
+        public string Constitution { get; internal set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
