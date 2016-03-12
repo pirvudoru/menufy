@@ -17,5 +17,11 @@ namespace MenufyServer.Data
         public ICollection<RecipeStep> Steps { get; set; } 
 
         public ICollection<RecipeIngredient> Ingredients { get; set; }
+
+        public Recipe()
+        {
+            Steps = new List<RecipeStep>();
+            Ingredients = new List<RecipeIngredient>();
+        }
     }
 }

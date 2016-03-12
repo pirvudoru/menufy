@@ -7,5 +7,10 @@ namespace MenufyServer.Data
         public ApplicationUser User { get; set; }
 
         public ICollection<DailyMenu> DailyMenus { get; set; }
+
+        public Menu()
+        {
+            DailyMenus = new List<DailyMenu>();
+        }
     }
 }

@@ -47,9 +47,18 @@ namespace MenufyServer.Services
             {
                 var dailyMenu = new DailyMenu();
 
-                dailyMenu.Meals.Add(CreateMeal(breakfasts[index]));
-                dailyMenu.Meals.Add(CreateMeal(lunches[index]));
-                dailyMenu.Meals.Add(CreateMeal(dinners[index]));
+                if (breakfasts.Count > index)
+                {
+                    dailyMenu.Meals.Add(CreateMeal(breakfasts[index]));
+                }
+                if (lunches.Count > index)
+                {
+                    dailyMenu.Meals.Add(CreateMeal(lunches[index]));
+                }
+                if (dinners.Count > index)
+                {
+                    dailyMenu.Meals.Add(CreateMeal(dinners[index]));
+                }
 
                 menu.DailyMenus.Add(dailyMenu);
             }

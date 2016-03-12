@@ -19,5 +19,10 @@ namespace MenufyServer.Data
         public string Constitution { get; set; }
 
         public string UserId { get; set; }
+
+        public UserProfile()
+        {
+            Menus = new List<Menu>();
+        }
     }
 }
