@@ -22,3 +22,28 @@ select,
 textarea {
     max-width: 280px;
 }
+
+div .recipe_photo{
+    width: 100%;
+    height: 300px;
+}
+
+.row-height .modifica{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+h1{
+    text-align:center;
+}
+
+h3{
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+}
+.menu_photo{
+    width 33%;
+    height: auto;
+}
