@@ -5,6 +5,10 @@ namespace MenufyServer.Services
 {
     public class CalloryCalculator
     {
+        public int GetYear(int year)
+        {
+            return DateTime.Now.Year + year;
+        }
         public decimal CalculateNormalFor(ApplicationUser user)
         {
             decimal normalCallory;
@@ -12,17 +16,17 @@ namespace MenufyServer.Services
             {
                 case "slim":
                 {
-                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + Convert.ToInt32(user.Birthdate) / 10) * 0.9 * 0.9);
+                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + GetYear(user.BirthDateYear) / 10) * 0.9 * 0.9);
                 }
                     break;
                 case "normal":
                 {
-                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + Convert.ToInt32(user.Birthdate)/10)*0.9);
+                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + GetYear(user.BirthDateYear) / 10)*0.9);
                 }
                     break;
                 case "robust":
                 {
-                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + Convert.ToInt32(user.Birthdate) / 10) * 0.9 * 1.1);
+                    normalCallory = (decimal) ((Convert.ToInt32(user.Height) - 100 + GetYear(user.BirthDateYear) / 10) * 0.9 * 1.1);
                 }
                     break;
                 default:
@@ -41,15 +45,15 @@ namespace MenufyServer.Services
             {
                 rmbValue =
                     (decimal)
-                        (66 + (13.75*Convert.ToInt32(user.Weight)) +
-                          (5*Convert.ToInt32(user.Height))*(6.76*Convert.ToInt32(user.Birthdate)));
+                        (66 + (13.75 * Convert.ToInt32(user.Weight)) +
+                          (5 * Convert.ToInt32(user.Height)) * (6.76 * GetYear(user.BirthDateYear)));
             }
             else
             {
                 rmbValue =
                     (decimal)
-                        (655 + (9.56*Convert.ToInt32(user.Weight)) +
-                          (1.55*Convert.ToInt32(user.Height))*(4.68*Convert.ToInt32(user.Birthdate)));
+                        (655 + (9.56 * Convert.ToInt32(user.Weight)) +
+                          (1.55 * Convert.ToInt32(user.Height)) * (4.68 * GetYear(user.BirthDateYear)));
 
             }
             return rmbValue;

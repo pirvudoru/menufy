@@ -18,8 +18,8 @@ namespace MenufyServer.ViewModels
         public string Constitution { get; set; }
 
         [Required]
-        [Display(Name = "BirthDate")]
-        public string BirthDate { get; set; }
+        [Display(Name = "BirthDate Year")]
+        public int BirthDateYear { get; set; }
 
         [Required]
         [Display(Name = "Weight")]
