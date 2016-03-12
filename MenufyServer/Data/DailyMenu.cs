@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MenufyServer.Data
 {
-    public class DailyMenu
+    public class DailyMenu : Identifiable
     {
         public ICollection<Meal> Meals { get; set; }
     }
