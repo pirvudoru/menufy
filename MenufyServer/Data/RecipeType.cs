@@ -2,7 +2,7 @@
 
 namespace MenufyServer.Data
 {
-    public class Category : Identifiable
+    public class RecipeType : Identifiable
     {
         public string Name { get; set; }
 
