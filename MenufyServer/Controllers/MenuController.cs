@@ -1,5 +1,7 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using MenufyServer.Data;
 using MenufyServer.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -32,9 +34,10 @@ namespace MenufyServer.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var user = UserManager.FindById(userId);
-
-            var menu = _menuGenerator.Generate(user);
+            var profile = ApplicationDbContext.Create().Profiles
+                .First(p => p.UserId == userId);
+            
+            var menu = _menuGenerator.Generate(profile);
 
             return View(menu);
         }

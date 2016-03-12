@@ -214,6 +214,7 @@
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Data\DailyMenu.cs" />
     <Compile Include="Data\Meal.cs" />
+    <Compile Include="Data\UserProfile.cs" />
     <Compile Include="Data\RecipeType.cs" />
     <Compile Include="Data\Identifiable.cs" />
     <Compile Include="Data\Ingredient.cs" />
@@ -221,7 +222,6 @@
     <Compile Include="Data\NutritionType.cs" />
     <Compile Include="Data\Recipe.cs" />
     <Compile Include="Data\RecipeIngredient.cs" />
-    <Compile Include="Data\RecipeNutritionData.cs" />
     <Compile Include="Data\RecipeStep.cs" />
     <Compile Include="Extensions\RecipeExtensionMethods.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,6 +321,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603122109511_Init.resx">
+      <DependentUpon>201603122109511_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

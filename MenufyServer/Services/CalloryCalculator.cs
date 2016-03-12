@@ -9,7 +9,7 @@ namespace MenufyServer.Services
         {
             return DateTime.Now.Year + year;
         }
-        public decimal CalculateNormalFor(ApplicationUser user)
+        public decimal CalculateNormalFor(UserProfile user)
         {
             decimal normalCallory;
             switch (user.Constitution)
@@ -38,7 +38,7 @@ namespace MenufyServer.Services
             return normalCallory;
         }
 
-        public decimal CalculateRmb(ApplicationUser user)
+        public decimal CalculateRmb(UserProfile user)
         {
             decimal rmbValue;
             if (user.Gender == "male")
@@ -59,7 +59,7 @@ namespace MenufyServer.Services
             return rmbValue;
         }
 
-        public decimal GetMultiplier(ApplicationUser user)
+        public decimal GetMultiplier(UserProfile user)
         {
             decimal multiplier;
             switch (user.Lifestyle)
@@ -93,7 +93,7 @@ namespace MenufyServer.Services
             return multiplier;
         }
 
-        public decimal CalculateCurrentFor(ApplicationUser user)
+        public decimal CalculateCurrentFor(UserProfile user)
         {
             return CalculateRmb(user) * GetMultiplier(user);
         }

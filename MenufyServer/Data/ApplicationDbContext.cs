@@ -6,19 +6,17 @@ namespace MenufyServer.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Ingredient> Ingredients { get; set; }
-
-        public DbSet<NutritionType> NutritionType { get; set; }
-
+        
         public DbSet<Recipe> Recipes { get; set; }
         
         public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
-
-        public DbSet<RecipeNutritionData> RecipeNutritionDatas { get; set; }
-
+        
         public DbSet<RecipeStep> RecipeSteps { get; set; }
 
         public DbSet<Menu> Menus { get; set; }
-        
+
+        public DbSet<UserProfile> Profiles { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

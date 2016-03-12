@@ -152,10 +152,29 @@ namespace MenufyServer.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email ,Gender=model.Gender, BirthDateYear=model.BirthDateYear, Weight=model.Weight ,Height=model.Height, Lifestyle=model.Lifestyle, Constitution=model.Constitution };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var profile = new UserProfile
+                    {
+                        Gender = model.Gender,
+                        BirthDateYear = model.BirthDateYear,
+                        Weight = model.Weight,
+                        Height = model.Height,
+                        Lifestyle = model.Lifestyle,
+                        Constitution = model.Constitution,
+                        UserId = user.Id
+                    };
+
+                    var context = ApplicationDbContext.Create();
+                    context.Profiles.Add(profile);
+                    context.SaveChanges();
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

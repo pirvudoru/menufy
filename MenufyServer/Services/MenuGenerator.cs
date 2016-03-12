@@ -18,15 +18,15 @@ namespace MenufyServer.Services
             _calloryCalculator = new CalloryCalculator();
         }
 
-        public Menu Generate(ApplicationUser user)
+        public Menu Generate(UserProfile user)
         {
             var context = ApplicationDbContext.Create();
             var availableRecipes = context.Recipes.WithoutPreviousRecipes(user);
 
-            var recommendedCallories = GetRecommendedCallories(user);
-            var breakfastRecommendedCallories = 50 * recommendedCallories / 100;
-            var lunchRecommendedCallories = 35 * recommendedCallories / 100;
-            var dinnerRecommendedCallories = 15 * recommendedCallories / 100;
+            var recommendedCalloriesPerDay = GetRecommendedCallories(user);
+            var breakfastRecommendedCallories = 50 * recommendedCalloriesPerDay / 100;
+            var lunchRecommendedCallories = 35 * recommendedCalloriesPerDay / 100;
+            var dinnerRecommendedCallories = 15 * recommendedCalloriesPerDay / 100;
 
             var breakfasts = availableRecipes.OfType(RecipeType.Breakfast)
                 .InCalloryRange(breakfastRecommendedCallories, CalloryEpsilon)
@@ -66,7 +66,7 @@ namespace MenufyServer.Services
             };
         }
 
-        private decimal GetRecommendedCallories(ApplicationUser user)
+        private decimal GetRecommendedCallories(UserProfile user)
         {
             var current = _calloryCalculator.CalculateCurrentFor(user);
             var ideal = _calloryCalculator.CalculateCurrentFor(user);

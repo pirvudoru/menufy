@@ -18,7 +18,7 @@ namespace MenufyServer.Extensions
             return availableRecipes.Where(r => r.CaloricValue > minLimit && r.CaloricValue < maxLimit);
         }
 
-        public static IQueryable<Recipe> WithoutPreviousRecipes(this IQueryable<Recipe> availableRecipes, ApplicationUser user)
+        public static IQueryable<Recipe> WithoutPreviousRecipes(this IQueryable<Recipe> availableRecipes, UserProfile user)
         {
             var previousRecipeIds =
                 user.Menus.SelectMany(m => m.DailyMenus)
