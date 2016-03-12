@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace MenufyServer.Data
+﻿namespace MenufyServer.Data
 {
-    public class RecipeType : Identifiable
+    public enum RecipeType
     {
-        public string Name { get; set; }
-
-        public ICollection<Recipe> Recipes { get; set; }
+        Breakfast,
+        Lunch,
+        Dinner
     }
 }

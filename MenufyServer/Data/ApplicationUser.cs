@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -10,6 +11,8 @@ namespace MenufyServer.Data
     {
         public string Birthdate { get; internal set; }
         public string Gender { get; internal set; }
+        public ICollection<Menu> Menus { get; set; }
+
         public string Height { get; internal set; }
         public string Lifestyle { get; internal set; }
         public string Weight { get; internal set; }

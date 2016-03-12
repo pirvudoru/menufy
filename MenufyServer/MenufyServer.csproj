@@ -212,6 +212,8 @@
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Data\DailyMenu.cs" />
+    <Compile Include="Data\Meal.cs" />
     <Compile Include="Data\RecipeType.cs" />
     <Compile Include="Data\Identifiable.cs" />
     <Compile Include="Data\Ingredient.cs" />
@@ -221,10 +223,12 @@
     <Compile Include="Data\RecipeIngredient.cs" />
     <Compile Include="Data\RecipeNutritionData.cs" />
     <Compile Include="Data\RecipeStep.cs" />
+    <Compile Include="Extensions\RecipeExtensionMethods.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Services\MenuGenerator.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />

@@ -18,8 +18,6 @@ namespace MenufyServer.Data
         public DbSet<RecipeStep> RecipeSteps { get; set; }
 
         public DbSet<Menu> Menus { get; set; }
-
-        public DbSet<RecipeType> RecipeTypes { get; set; }
         
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

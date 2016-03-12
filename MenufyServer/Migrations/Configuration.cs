@@ -18,7 +18,6 @@ namespace MenufyServer.Migrations
         protected override void Seed(ApplicationDbContext context)
         {
             CreateIngredients(context);
-            CreateRecipeTypes(context);
             CreateNutritionTypes(context);
             CreateRecipes(context);
             
@@ -44,7 +43,7 @@ namespace MenufyServer.Migrations
             {
                 context.Recipes.Add(new Recipe
                 {
-                    RecipeType = context.RecipeTypes.First(),
+                    Type = index % 3 == 0 ? RecipeType.Breakfast : index % 3 == 0 ? RecipeType.Lunch : RecipeType.Dinner,
                     Ingredients = context.Ingredients.Take(3).Select(i => new RecipeIngredient
                     {
                         Ingredient = i,
@@ -91,17 +90,6 @@ namespace MenufyServer.Migrations
                 {
                     Name = $"Fat{index}",
                     Unit = "kcal"
-                });
-            }
-        }
-
-        private static void CreateRecipeTypes(ApplicationDbContext context)
-        {
-            for (var index = 0; index < 20; index++)
-            {
-                context.RecipeTypes.AddOrUpdate(new RecipeType
-                {
-                    Name = $"Main/Desert{index}"
                 });
             }
         }
