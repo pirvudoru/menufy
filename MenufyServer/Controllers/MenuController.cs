@@ -29,8 +29,9 @@ namespace MenufyServer.Controllers
         {
             _menuGenerator = new MenuGenerator();
         }
-        
+
         // GET: Menu
+        [Authorize]
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
