@@ -78,7 +78,7 @@ namespace MenufyServer.Services
         private decimal GetRecommendedCallories(UserProfile user)
         {
             var current = _calloryCalculator.CalculateCurrentFor(user);
-            var ideal = _calloryCalculator.CalculateCurrentFor(user);
+            var ideal = _calloryCalculator.CalculateNormalFor(user);
 
             var recommended = current > ideal
                 ? Math.Max(ideal, current - CalloryIncrement)
