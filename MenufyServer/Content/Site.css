@@ -60,3 +60,11 @@ h3{
 p{
     text-align: center;
 }
+
+.recipe-card {
+    text-align: center;
+}
+
+.navbar-right {
+    float: right;
+}

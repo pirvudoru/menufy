@@ -1,92 +1,22 @@
-﻿@using MenufyServer.Data
-@model MenufyServer.Data.Menu
+﻿@model MenufyServer.Data.Menu
 
 @{
     ViewBag.Title = "title";
 }
 
-<head runat="server">
-    <title>Recipe</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="Site.css" />
-    <script src="bootstrap.min.js"></script>
-    <link rel="stylesheet" href="bootstrap-theme.min.css" />
-</head>
-
-<body>
 @foreach (var dailyMenu in Model.DailyMenus)
 {
-        var resultBf = dailyMenu.Meals.FirstOrDefault(a => a.Recipe.Type == RecipeType.Breakfast);
-        if (resultBf != null)
-        {
-            <div class="breakfest">
-                <h3>Breakfast</h3>
-                <div class="col-md-4" style="background-color: pink;">
-                    <div class="menu_photo">
-                        <img src="@resultBf.Recipe.PhotoUrl" alt="This food photo" class="recipe_photo">
-                    </div>
-                    <div class="row">
-                        <div class="row-height">
-                            <div class="text-center">
-                                <label>@resultBf.Recipe.Title</label>
-                                <div class="modifica">
-                                    <p>@resultBf.Recipe.CaloricValue</p>
-                                    @Html.ActionLink("Recipe", "Details", "Recipe", new { id = resultBf.Recipe.Id }, null)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    }
-    var resultLunch = dailyMenu.Meals.FirstOrDefault(a => a.Recipe.Type == RecipeType.Lunch);
-    if (resultLunch != null)
+    foreach (var meal in dailyMenu.Meals)
     {
-        <div class="Lunch">
-            <h3>Lunch</h3>
-            <div class="col-md-4" style="background-color: pink;">
-                <div class="menu_photo">
-                    <img src="@resultLunch.Recipe.PhotoUrl" alt="This food photo" class="recipe_photo">
+        <div class="col-md-4">
+            <div class="card recipe-card">
+                <img class="card-img-top" width="318" src="@meal.Recipe.PhotoUrl" alt="@meal.Recipe.Title">
+                <div class="card-block">
+                    <h4 class="card-title">@meal.Recipe.Type.ToString()</h4>
+                    <p class="card-text">@meal.Recipe.Title</p>
+                    @Html.ActionLink("View", "Details", "Recipe", new { id = meal.Recipe.Id}, new { @class = "btn btn-primary" })
                 </div>
-                <div class="row">
-                    <div class="row-height">
-                        <div class="text-center">
-                            <label>@resultLunch.Recipe.Title</label>
-                            <div class="modifica">
-                                <p>@resultLunch.Recipe.CaloricValue</p>
-                                @Html.ActionLink("Recipe", "Details", "Recipe", new { id = resultLunch.Recipe.Id }, null)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>            
         </div>
     }
-    var resultDinner = dailyMenu.Meals.FirstOrDefault(a => a.Recipe.Type == RecipeType.Dinner);
-    if (resultDinner != null)
-    {
-        <div class="Dinner">
-            <h3>Dinner</h3>
-            <div class="col-md-4" style="background-color: pink;">
-                <div class="menu_photo">
-                    <img src="@resultDinner.Recipe.PhotoUrl" alt="This food photo" class="recipe_photo">
-                </div>
-                <div class="row">
-                    <div class="row-height">
-                        <div class="text-center">
-                            <label>@resultDinner.Recipe.Title</label>
-                            <div class="modifica">
-                                <p>@resultDinner.Recipe.CaloricValue</p>
-                                @Html.ActionLink("Recipe", "Details", "Recipe", new { id = resultDinner.Recipe.Id }, null)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-
 }
-</body>

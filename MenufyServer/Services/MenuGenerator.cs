@@ -29,15 +29,15 @@ namespace MenufyServer.Services
             var dinnerRecommendedCallories = 15 * recommendedCalloriesPerDay / 100;
 
             var breakfasts = availableRecipes.OfType(RecipeType.Breakfast)
-                .InCalloryRange(breakfastRecommendedCallories, CalloryEpsilon)
+//                .InCalloryRange(breakfastRecommendedCallories, CalloryEpsilon)
                 .Take(WeekDaysCount)
                 .ToList();
             var lunches = availableRecipes.OfType(RecipeType.Lunch)
-                .InCalloryRange(lunchRecommendedCallories, CalloryEpsilon)
+//                .InCalloryRange(lunchRecommendedCallories, CalloryEpsilon)
                 .Take(WeekDaysCount)
                 .ToList();
             var dinners = availableRecipes.OfType(RecipeType.Dinner)
-                .InCalloryRange(dinnerRecommendedCallories, CalloryEpsilon)
+//                .InCalloryRange(dinnerRecommendedCallories, CalloryEpsilon)
                 .Take(WeekDaysCount)
                 .ToList();
 

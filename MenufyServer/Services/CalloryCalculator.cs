@@ -28,7 +28,7 @@ namespace MenufyServer.Services
                           (1.55 * Convert.ToInt32(user.Height)) - (4.68 * GetAge(user.BirthDateYear)));
 
             }
-            return rmbValue;
+            return rmbValue * GetMultiplier(user);
         }
 
         public decimal CalculateNormalWeight(UserProfile user)
