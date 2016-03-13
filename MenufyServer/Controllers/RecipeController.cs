@@ -17,11 +17,7 @@ namespace MenufyServer.Controllers
         {
             var context = ApplicationDbContext.Create();
             Recipe recipe = (context.Recipes.Take(id).ToList()).First(r => r.Id == id);
-            ViewBag.photoUrl = recipe.PhotoUrl;
-            ViewBag.ingredients = recipe.Ingredients;
-            ViewBag.steps = recipe.Steps;
-            ViewBag.name = recipe.Title;
-            return View();
+            return View(recipe);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model MenufyServer.Data.Recipe
 
 @{
     ViewBag.Title = "title";
@@ -17,9 +17,9 @@
 <body>
 
 <div class="container-fluid">
-    <h1>@ViewBag.name</h1>
+    <h1>@Model.Title</h1>
     <div class="recipe_photo">
-        <img src="@ViewBag.photoUrl" alt="This food photo" class="recipe_photo">
+        <img src="@Model.PhotoUrl" alt="This food photo" class="recipe_photo">
     </div>
     <div class="col-md-12" style="background-color: pink;">
         <div class="row">
@@ -27,7 +27,7 @@
                 <div class="text-center">
                     <label for="Incredients">Incredients</label>
                     <div class="modifica">
-                        @foreach (var ingridient in ViewBag.ingredients)
+                        @foreach (var ingridient in Model.Ingredients)
                         {
                             <p>@ingridient</p>
                         }
@@ -43,7 +43,7 @@
                 <div class="text-center">
                     <label for="PreparationSteps">Preparation Steps</label>
                     <div class="modifica">
-                        @foreach (var step in ViewBag.steps)
+                        @foreach (var step in Model.Steps)
                         {
                             <p>@step</p>
                         }
