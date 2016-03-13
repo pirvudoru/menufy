@@ -12,6 +12,27 @@ namespace MenufyServer.Services
 
         public decimal CalculateNormalFor(UserProfile user)
         {
+            decimal rmbValue;
+            if (user.Gender == "male")
+            {
+                rmbValue =
+                    (decimal)
+                        (66 + (13.75 * Convert.ToInt32(CalculateNormalWeight(user))) +
+                          (5 * Convert.ToInt32(user.Height)) - (6.76 * GetAge(user.BirthDateYear)));
+            }
+            else
+            {
+                rmbValue =
+                    (decimal)
+                        (655 + (9.56 * Convert.ToInt32(CalculateNormalWeight(user))) +
+                          (1.55 * Convert.ToInt32(user.Height)) - (4.68 * GetAge(user.BirthDateYear)));
+
+            }
+            return rmbValue;
+        }
+
+        public decimal CalculateNormalWeight(UserProfile user)
+        {
             decimal normalCallory;
             switch (user.Constitution)
             {
